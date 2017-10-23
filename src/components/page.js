@@ -1,25 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import AppHoc from '../hoc/app';
 import moment from 'moment';
 
 import {getClassName} from "./helpers";
 import {TeamComponent} from './team';
+import Clock from './clock';
+import TimeButton from './timeButton';
 
 const Page = ({data, updateLunch, lunchUpdated}) => {
 
     let model = {
-        lunchAt: '0000',
+        lunchAt: '000',
         oneOFive: 'MAYBE',
         oneOThree: 'MAYBE'
     };
 
     if (!data.loading) {
-        console.log('lunch came');
         model = data.lunch;
     }
 
-    if(!lunchUpdated.loading){
+    if (!lunchUpdated.loading) {
         model = lunchUpdated.lunchUpdated
     }
 
@@ -43,11 +44,11 @@ const Page = ({data, updateLunch, lunchUpdated}) => {
                     <div className="clock-container">
                         <div className="darkgray">
                             <div className="timeBig">{moment(model.lunchAt).format("HH:mm")}</div>
-                            <div className="timeSmall">15:46:57</div>
+                            <div className="timeSmall"><Clock/></div>
                         </div>
                         <div className="inc-dec">
-                            <span className="bad">-</span>
-                            <span className="good">+</span>
+                            <TimeButton model={model} type={'whatevah'} updateLunch={updateLunch} className={'bad'}/>
+                            <TimeButton model={model} type={'add'} updateLunch={updateLunch} className={'good'}/>
                         </div>
                     </div>
                 </div>
@@ -79,44 +80,4 @@ const connectedPage = AppHoc(Page);
 export {
     connectedPage as default
 }
-//     props.updateLunch({variables: {lunchAt: 'dlkjsdf', oneOFive: 'bbb', oneOThree: 'zz'}})
 
-// const model: AppType = props.data.allLunches ? props.data.allLunches[props.data.allLunches.length - 1] : undefined;
-// let containerName = 'container';
-// if (model && model.oneOThree === 'YES' && model.oneOFive === 'YES') {
-//     containerName = "container positive";
-// } else if (model && model.oneOThree === 'NO' && model.oneOFive === 'NO') {
-//     containerName = "container negative";
-// }
-// return <div id="page-wrapper">
-//     <div className={containerName}>
-//         <div className={`sto-trzy ${getClassName(model ? model.oneOThree : '')}`}/>
-//         <div className={`sto-piec ${getClassName(model ? model.oneOFive : '')}`}/>
-//     </div>
-//     {props.data.loading || !props.data.allLunches
-//         ? <div className="loading">...loading</div>
-//         : <Component
-//             {...props}
-//             createLunch={(data) => {
-//                 return props.createLunch(
-//                     {
-//                         variables: Object.assign({}, {...model}, {...data}),
-//                         optimisticResponse: {
-//                             createLunch: {
-//                                 ...data,
-//                                 id: Math.round(Math.random() * -1000000),
-//                                 __typename: 'Lunch',
-//                             },
-//                         },
-//                         update: (store, {data: {createLunch}}) => {
-//                             // Read the data from our cache for this query.
-//                             const data = store.readQuery({query: GetLunches});
-//                             // Add our comment from the mutation to the end.
-//                             data.allLunches.push(createLunch);
-//                             // Write our data back to the cache.
-//                             store.writeQuery({query: GetLunches, data});
-//                         },
-//                     });
-//             }}
-//         />}
-// </div>;;
