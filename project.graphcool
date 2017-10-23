@@ -1,0 +1,41 @@
+# project: cj8zko8370sgq0186gpf50bwm
+# version: 11
+
+type File @model {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type Post @model {
+  asdf: TeamOk
+  description: String!
+  id: ID! @isUnique
+  imageUrl: String!
+}
+
+enum TeamOk {
+  YES
+  NO
+  MAYBE
+}
+
+type User @model {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+}
+
+type Lunch @model {
+  id: ID! @isUnique
+  lunchAt: DateTime!
+  oneOThree: TeamOk!
+  oneOFive: TeamOk!
+  updatedAt: DateTime!
+}
+

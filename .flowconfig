@@ -1,0 +1,12 @@
+[ignore]
+.*/node_modules/graphql/validation/.*
+.*/node_modules/graphql/utilities/.*
+.*/node_modules/react-apollo/.*.flow
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
