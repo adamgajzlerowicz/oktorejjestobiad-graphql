@@ -5,12 +5,12 @@ import './index.css';
 
 import Page from './components/page';
 
-const wsClient = new SubscriptionClient(`ws://localhost:4000/subscriptions`, {
+const wsClient = new SubscriptionClient(`ws://145.239.91.188:4000/subscriptions`, {
     reconnect: true
 });
 
 const networkInterface = createNetworkInterface({
-    uri: 'http://localhost:4000/graphql'
+    uri: 'http://145.239.91.188:4000/graphql'
 });
 
 const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(

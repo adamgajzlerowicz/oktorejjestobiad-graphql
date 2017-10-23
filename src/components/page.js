@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import AppHoc from '../hoc/app';
 import moment from 'moment';
