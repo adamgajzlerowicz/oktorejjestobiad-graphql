@@ -6,12 +6,10 @@ import './index.css';
 import Page from './components/page';
 
 const config = process.env.NODE_ENV === 'development' ? {
-    host: '145.239.91.188'
-} : {
     host: 'localhost'
+} : {
+    host: '145.239.91.188'
 };
-
-console.log();
 
 const wsClient = new SubscriptionClient(`ws://${config.host}:4000/subscriptions`, {
     reconnect: true
