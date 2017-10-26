@@ -31,8 +31,10 @@ const Page = ({data, updateLunch, lunchUpdated, notify}) => {
         containerName = "container negative";
     }
 
+    const isModifiedState = model.oneOFive !== 'MAYBE' || model.oneOThree !== 'MAYBE';
+
     return (
-        <div id="page-wrapper">
+        <div id="page-wrapper" className={isModifiedState ? 'white' : ''}>
             <div className={containerName}>
                 <div className={`sto-trzy ${getClassName(model ? model.oneOThree : '')}`}/>
                 <div className={`sto-piec ${getClassName(model ? model.oneOFive : '')}`}/>
