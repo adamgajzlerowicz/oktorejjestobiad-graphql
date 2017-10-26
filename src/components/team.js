@@ -7,26 +7,18 @@ const TeamComponent = ({updateLunch, model, team}) => {
             <div>
                 <div className="bad">
                 <span
-                    onClick={(): void => {
-                        return updateLunch(changeTeamState(model, 'NO', team))
-                    }}
-                    onKeyPress={(): void => {
-                        return updateLunch(changeTeamState(model, 'NO', team))
-                    }}
+                    onClick={(): void => updateLunch(changeTeamState(model, 'NO', team))}
+                    onKeyPress={(): void => updateLunch(changeTeamState(model, 'NO', team))}
                     role="button"
                     tabIndex="0"
                 >Nie czekajcie</span>
                 </div>
                 <div className="good">
                 <span
-                    onClick={(): void => {
-                        return updateLunch(changeTeamState(model, 'YES', team))
-                    }}
-                    onKeyPress={(): void => {
-                        return updateLunch(changeTeamState(model, 'YES', team))
-                    }}
+                    onClick={(): void => updateLunch(changeTeamState(model, 'YES', team))}
+                    onKeyPress={(): void => updateLunch(changeTeamState(model, 'YES', team))}
                     role="button"
-                    tabIndex="0"
+                    tabIndex="-1"
                 >Jestesmy glodni</span>
                 </div>
             </div>

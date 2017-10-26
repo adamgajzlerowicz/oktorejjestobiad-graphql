@@ -8,7 +8,7 @@ import {TeamComponent} from './team';
 import Clock from './clock';
 import TimeButton from './timeButton';
 
-const Page = ({data, updateLunch, lunchUpdated}) => {
+const Page = ({data, updateLunch, lunchUpdated, notify}) => {
 
     let model = {
         lunchAt: '000',
@@ -46,8 +46,16 @@ const Page = ({data, updateLunch, lunchUpdated}) => {
                             <div className="timeBig">{moment(model.lunchAt).format("HH:mm")}</div>
                             <div className="timeSmall"><Clock/></div>
                         </div>
+                        <div className="notify dark">
+                            <span
+                                onClick={(): void => notify(model)}
+                                onKeyPress={(): void => notify(model)}
+                                role="button"
+                                tabIndex="0"
+                            >notify</span>
+                        </div>
                         <div className="inc-dec">
-                            <TimeButton model={model} type={'whatevah'} updateLunch={updateLunch} className={'bad'}/>
+                            <TimeButton model={model} type={'sub'} updateLunch={updateLunch} className={'bad'}/>
                             <TimeButton model={model} type={'add'} updateLunch={updateLunch} className={'good'}/>
                         </div>
                     </div>

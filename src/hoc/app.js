@@ -22,6 +22,14 @@ const updateLunch = gql`
     }
 `;
 
+const notify  = gql`
+    mutation notify {
+        notify {
+            lunchAt
+        }
+    }
+`;
+
 const lunchUpdated = gql`
     subscription lunchUpdated{
         lunchUpdated {
@@ -34,6 +42,7 @@ const lunchUpdated = gql`
 
 const AppHoc = (Component) => compose(
     graphql(getLunch, {name: 'data'}),
+    graphql(notify, {name: 'notify'}),
     graphql(updateLunch, {name: 'updateLunch'}),
     graphql(lunchUpdated, {name: 'lunchUpdated'})
 )(({...props}) => {
