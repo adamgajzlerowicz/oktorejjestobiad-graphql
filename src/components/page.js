@@ -64,7 +64,7 @@ const Page = ({data, updateLunch, lunchUpdated, notify}) => {
                 </div>
                 <div className="inner-bottom">
                     <div>
-                        <div><span className="darkgray"> 103</span></div>
+                        <div><span className="darkgray">114</span></div>
                         <TeamComponent
                             updateLunch={updateLunch}
                             model={model}
@@ -72,7 +72,7 @@ const Page = ({data, updateLunch, lunchUpdated, notify}) => {
                         />
                     </div>
                     <div>
-                        <div><span className="darkgray">105</span></div>
+                        <div><span className="darkgray">111</span></div>
                         <TeamComponent
                             updateLunch={updateLunch}
                             model={model}
